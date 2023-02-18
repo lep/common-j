@@ -1,80 +1,3 @@
-//============================================================================
-// Native types. All native functions take extended handle types when
-// possible to help prevent passing bad values to native functions
-//
-type agent			    extends     handle  // all reference counted objects
-type event              extends     agent  // a reference to an event registration
-type player             extends     agent  // a single player reference
-type widget             extends     agent  // an interactive game object with life
-type unit               extends     widget  // a single unit reference
-type destructable       extends     widget
-type item               extends     widget
-type ability            extends     agent
-type buff               extends     ability
-type force              extends     agent
-type group              extends     agent
-type trigger            extends     agent
-type triggercondition   extends     agent
-type triggeraction      extends     handle
-type timer              extends     agent
-type location           extends     agent
-type region             extends     agent
-type rect               extends     agent
-type boolexpr           extends     agent
-type sound              extends     agent
-type conditionfunc      extends     boolexpr
-type filterfunc         extends     boolexpr
-type unitpool           extends     handle
-type itempool           extends     handle
-type race               extends     handle
-type alliancetype       extends     handle
-type racepreference     extends     handle
-type gamestate          extends     handle
-type igamestate         extends     gamestate
-type fgamestate         extends     gamestate
-type playerstate        extends     handle
-type playerscore        extends     handle
-type playergameresult   extends     handle
-type unitstate          extends     handle
-type aidifficulty       extends     handle
-
-type eventid            extends     handle
-type gameevent          extends     eventid
-type playerevent        extends     eventid
-type playerunitevent    extends     eventid
-type unitevent          extends     eventid
-type limitop            extends     eventid
-type widgetevent        extends     eventid
-type dialogevent        extends     eventid
-type unittype           extends     handle
-
-type gamespeed          extends     handle
-type gamedifficulty     extends     handle
-type gametype           extends     handle
-type mapflag            extends     handle
-type mapvisibility      extends     handle
-type mapsetting         extends     handle
-type mapdensity         extends     handle
-type mapcontrol         extends     handle
-type playerslotstate    extends     handle
-type volumegroup        extends     handle
-type camerafield        extends     handle
-type camerasetup        extends     handle
-type playercolor        extends     handle
-type placement          extends     handle
-type startlocprio       extends     handle
-type raritycontrol      extends     handle
-type blendmode          extends     handle
-type texmapflags        extends     handle
-type effect             extends     agent
-type effecttype         extends     handle
-type weathereffect      extends     handle
-type terraindeformation extends     handle
-type fogstate           extends     handle
-type fogmodifier        extends     agent
-type dialog             extends     agent
-type button             extends     agent
-type quest              extends     agent
 type questitem          extends     agent
 type defeatcondition    extends     agent
 type timerdialog        extends     agent
@@ -245,7 +168,7 @@ constant native GetPlayerNeutralAggressive  takes nothing returns integer
 globals
 
 //===================================================
-// Game Constants    
+// Game Constants  
 //===================================================
 
     // pfff
@@ -442,7 +365,7 @@ globals
     constant subanimtype        SUBANIM_TYPE_BERSERK            = ConvertSubAnimType(62)
 
 //===================================================
-// Map Setup Constants    
+// Map Setup Constants  
 //===================================================
 
     constant racepreference     RACE_PREF_HUMAN                     = ConvertRacePref(1)
@@ -478,7 +401,7 @@ globals
     constant mapflag            MAP_OBSERVERS_ON_DEATH              = ConvertMapFlag(32)
 
     constant mapflag            MAP_FIXED_COLORS                    = ConvertMapFlag(128)
-    
+  
     constant mapflag            MAP_LOCK_RESOURCE_TRADING           = ConvertMapFlag(256)
     constant mapflag            MAP_RESOURCE_TRADING_ALLIES_ONLY    = ConvertMapFlag(512)
 
@@ -498,7 +421,7 @@ globals
     constant placement          MAP_PLACEMENT_RANDOM                = ConvertPlacement(0)   // random among all slots
     constant placement          MAP_PLACEMENT_FIXED                 = ConvertPlacement(1)   // player 0 in start loc 0...
     constant placement          MAP_PLACEMENT_USE_MAP_SETTINGS      = ConvertPlacement(2)   // whatever was specified by the script
-    constant placement          MAP_PLACEMENT_TEAMS_TOGETHER        = ConvertPlacement(3)   // random with allies next to each other    
+    constant placement          MAP_PLACEMENT_TEAMS_TOGETHER        = ConvertPlacement(3)   // random with allies next to each other  
 
     constant startlocprio       MAP_LOC_PRIO_LOW                    = ConvertStartLocPrio(0)
     constant startlocprio       MAP_LOC_PRIO_HIGH                   = ConvertStartLocPrio(1)
@@ -613,7 +536,7 @@ globals
     constant playerscore PLAYER_SCORE_HERO_TOTAL                = ConvertPlayerScore(22)
     constant playerscore PLAYER_SCORE_RESOURCE_TOTAL            = ConvertPlayerScore(23)
     constant playerscore PLAYER_SCORE_TOTAL                     = ConvertPlayerScore(24)
-        
+      
 //===================================================
 // Game, Player and Unit Events
 //
@@ -630,14 +553,14 @@ globals
 //===================================================
 
     //===================================================
-    // For use with TriggerRegisterGameEvent    
-    //===================================================    
+    // For use with TriggerRegisterGameEvent  
+    //===================================================  
 
     constant gameevent EVENT_GAME_VICTORY                       = ConvertGameEvent(0)
     constant gameevent EVENT_GAME_END_LEVEL                     = ConvertGameEvent(1)
 
     constant gameevent EVENT_GAME_VARIABLE_LIMIT                = ConvertGameEvent(2)
-    constant gameevent EVENT_GAME_STATE_LIMIT                   = ConvertGameEvent(3)   
+    constant gameevent EVENT_GAME_STATE_LIMIT                   = ConvertGameEvent(3)  
 
     constant gameevent EVENT_GAME_TIMER_EXPIRED                 = ConvertGameEvent(4)
 
@@ -647,7 +570,7 @@ globals
     constant gameevent EVENT_GAME_TRACKABLE_HIT                 = ConvertGameEvent(7)
     constant gameevent EVENT_GAME_TRACKABLE_TRACK               = ConvertGameEvent(8)
 
-    constant gameevent EVENT_GAME_SHOW_SKILL                    = ConvertGameEvent(9)    
+    constant gameevent EVENT_GAME_SHOW_SKILL                    = ConvertGameEvent(9)  
     constant gameevent EVENT_GAME_BUILD_SUBMENU                 = ConvertGameEvent(10)
 
     //===================================================
@@ -714,7 +637,7 @@ globals
     constant playerunitevent EVENT_PLAYER_UNIT_LOADED                   = ConvertPlayerUnitEvent(51)
     constant playerunitevent EVENT_PLAYER_UNIT_DAMAGED                  = ConvertPlayerUnitEvent(308)
     constant playerunitevent EVENT_PLAYER_UNIT_DAMAGING                 = ConvertPlayerUnitEvent(315)
-    
+  
     //===================================================
     // For use with TriggerRegisterUnitEvent
     //===================================================
@@ -727,48 +650,48 @@ globals
     constant unitevent EVENT_UNIT_HIDDEN                                = ConvertUnitEvent(56)
     constant unitevent EVENT_UNIT_SELECTED                              = ConvertUnitEvent(57)
     constant unitevent EVENT_UNIT_DESELECTED                            = ConvertUnitEvent(58)
-                                                                        
-    constant unitevent EVENT_UNIT_STATE_LIMIT                           = ConvertUnitEvent(59)                                                                        
+                                                                      
+    constant unitevent EVENT_UNIT_STATE_LIMIT                           = ConvertUnitEvent(59)                                                                      
 
-    // Events which may have a filter for the "other unit"              
-    //                                                                  
+    // Events which may have a filter for the "other unit"            
+    //                                                                
     constant unitevent EVENT_UNIT_ACQUIRED_TARGET                       = ConvertUnitEvent(60)
     constant unitevent EVENT_UNIT_TARGET_IN_RANGE                       = ConvertUnitEvent(61)
     constant unitevent EVENT_UNIT_ATTACKED                              = ConvertUnitEvent(62)
     constant unitevent EVENT_UNIT_RESCUED                               = ConvertUnitEvent(63)
-                                                                        
+                                                                      
     constant unitevent EVENT_UNIT_CONSTRUCT_CANCEL                      = ConvertUnitEvent(64)
     constant unitevent EVENT_UNIT_CONSTRUCT_FINISH                      = ConvertUnitEvent(65)
-                                                                        
+                                                                      
     constant unitevent EVENT_UNIT_UPGRADE_START                         = ConvertUnitEvent(66)
     constant unitevent EVENT_UNIT_UPGRADE_CANCEL                        = ConvertUnitEvent(67)
     constant unitevent EVENT_UNIT_UPGRADE_FINISH                        = ConvertUnitEvent(68)
-                                                                        
-    // Events which involve the specified unit performing               
-    // training of other units                                          
-    //                                                                  
+                                                                      
+    // Events which involve the specified unit performing              
+    // training of other units                                        
+    //                                                                
     constant unitevent EVENT_UNIT_TRAIN_START                           = ConvertUnitEvent(69)
     constant unitevent EVENT_UNIT_TRAIN_CANCEL                          = ConvertUnitEvent(70)
     constant unitevent EVENT_UNIT_TRAIN_FINISH                          = ConvertUnitEvent(71)
-                                                                        
+                                                                      
     constant unitevent EVENT_UNIT_RESEARCH_START                        = ConvertUnitEvent(72)
     constant unitevent EVENT_UNIT_RESEARCH_CANCEL                       = ConvertUnitEvent(73)
     constant unitevent EVENT_UNIT_RESEARCH_FINISH                       = ConvertUnitEvent(74)
-                                                                        
+                                                                      
     constant unitevent EVENT_UNIT_ISSUED_ORDER                          = ConvertUnitEvent(75)
     constant unitevent EVENT_UNIT_ISSUED_POINT_ORDER                    = ConvertUnitEvent(76)
     constant unitevent EVENT_UNIT_ISSUED_TARGET_ORDER                   = ConvertUnitEvent(77)
-                                                                       
+                                                                      
     constant unitevent EVENT_UNIT_HERO_LEVEL                            = ConvertUnitEvent(78)
     constant unitevent EVENT_UNIT_HERO_SKILL                            = ConvertUnitEvent(79)
-                                                                        
+                                                                      
     constant unitevent EVENT_UNIT_HERO_REVIVABLE                        = ConvertUnitEvent(80)
     constant unitevent EVENT_UNIT_HERO_REVIVE_START                     = ConvertUnitEvent(81)
     constant unitevent EVENT_UNIT_HERO_REVIVE_CANCEL                    = ConvertUnitEvent(82)
     constant unitevent EVENT_UNIT_HERO_REVIVE_FINISH                    = ConvertUnitEvent(83)
-                                                                        
+                                                                      
     constant unitevent EVENT_UNIT_SUMMON                                = ConvertUnitEvent(84)
-                                                                        
+                                                                      
     constant unitevent EVENT_UNIT_DROP_ITEM                             = ConvertUnitEvent(85)
     constant unitevent EVENT_UNIT_PICKUP_ITEM                           = ConvertUnitEvent(86)
     constant unitevent EVENT_UNIT_USE_ITEM                              = ConvertUnitEvent(87)
@@ -783,7 +706,7 @@ globals
     //===================================================
     // Frozen Throne Expansion Events
     // Need to be added here to preserve compat
-    //===================================================    
+    //===================================================  
 
     constant gameevent          EVENT_GAME_LOADED                       = ConvertGameEvent(256)
     constant gameevent          EVENT_GAME_TOURNAMENT_FINISH_SOON       = ConvertGameEvent(257)
@@ -840,7 +763,7 @@ globals
     constant unitevent          EVENT_UNIT_PAWN_ITEM                    = ConvertUnitEvent(294)
 
     //===================================================
-    // Limit Event API constants    
+    // Limit Event API constants  
     // variable, player state, game state, and unit state events
     // ( do NOT change the order of these... )
     //===================================================
@@ -878,9 +801,9 @@ globals
     constant unittype UNIT_TYPE_MECHANICAL                  = ConvertUnitType(15)
     constant unittype UNIT_TYPE_PEON                        = ConvertUnitType(16)
     constant unittype UNIT_TYPE_SAPPER                      = ConvertUnitType(17)
-    constant unittype UNIT_TYPE_TOWNHALL                    = ConvertUnitType(18)    
+    constant unittype UNIT_TYPE_TOWNHALL                    = ConvertUnitType(18)  
     constant unittype UNIT_TYPE_ANCIENT                     = ConvertUnitType(19)
-    
+  
     constant unittype UNIT_TYPE_TAUREN                      = ConvertUnitType(20)
     constant unittype UNIT_TYPE_POISONED                    = ConvertUnitType(21)
     constant unittype UNIT_TYPE_POLYMORPHED                 = ConvertUnitType(22)
@@ -929,7 +852,7 @@ globals
     constant blendmode   BLEND_MODE_ADDITIVE                = ConvertBlendMode(3)
     constant blendmode   BLEND_MODE_MODULATE                = ConvertBlendMode(4)
     constant blendmode   BLEND_MODE_MODULATE_2X             = ConvertBlendMode(5)
-    
+  
     constant raritycontrol  RARITY_FREQUENT                 = ConvertRarityControl(0)
     constant raritycontrol  RARITY_RARE                     = ConvertRarityControl(1)
 
@@ -1220,7 +1143,7 @@ globals
 //===================================================
 // Instanced Object Operation API constants
 //===================================================
-    
+  
     // Ability
     constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_NORMAL_X        = ConvertAbilityIntegerField('abpx')
     constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_NORMAL_Y        = ConvertAbilityIntegerField('abpy')
@@ -1234,7 +1157,7 @@ globals
     constant abilityintegerfield ABILITY_IF_PRIORITY                        = ConvertAbilityIntegerField('apri')
     constant abilityintegerfield ABILITY_IF_LEVELS                          = ConvertAbilityIntegerField('alev')
     constant abilityintegerfield ABILITY_IF_REQUIRED_LEVEL                  = ConvertAbilityIntegerField('arlv')
-    constant abilityintegerfield ABILITY_IF_LEVEL_SKIP_REQUIREMENT          = ConvertAbilityIntegerField('alsk') 
+    constant abilityintegerfield ABILITY_IF_LEVEL_SKIP_REQUIREMENT          = ConvertAbilityIntegerField('alsk')
 
     constant abilitybooleanfield ABILITY_BF_HERO_ABILITY                    = ConvertAbilityBooleanField('aher') // Get only
     constant abilitybooleanfield ABILITY_BF_ITEM_ABILITY                    = ConvertAbilityBooleanField('aite')
@@ -1607,7 +1530,7 @@ globals
     constant abilityreallevelfield ABILITY_RLF_EXTRA_DAMAGE_POA1                                 = ConvertAbilityRealLevelField('Poa1')
     constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_POA2                            = ConvertAbilityRealLevelField('Poa2')
     constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_POA3                          = ConvertAbilityRealLevelField('Poa3')
-    constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_POA4                        = ConvertAbilityRealLevelField('Poa4')   
+    constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_POA4                        = ConvertAbilityRealLevelField('Poa4')  
     constant abilityreallevelfield ABILITY_RLF_DAMAGE_AMPLIFICATION                              = ConvertAbilityRealLevelField('Pos2')
     constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_STOMP_PERCENT                           = ConvertAbilityRealLevelField('War1')
     constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_WAR2                                 = ConvertAbilityRealLevelField('War2')
@@ -2096,7 +2019,7 @@ globals
     constant unitweaponbooleanfield UNIT_WEAPON_BF_ATTACK_SHOW_UI                   = ConvertUnitWeaponBooleanField('uwu1')
     constant unitweaponbooleanfield UNIT_WEAPON_BF_ATTACKS_ENABLED                  = ConvertUnitWeaponBooleanField('uaen')
     constant unitweaponbooleanfield UNIT_WEAPON_BF_ATTACK_PROJECTILE_HOMING_ENABLED = ConvertUnitWeaponBooleanField('umh1')
-    
+  
     constant unitweaponstringfield UNIT_WEAPON_SF_ATTACK_PROJECTILE_ART             = ConvertUnitWeaponStringField('ua1m')
 
     // Move Type
@@ -2108,7 +2031,7 @@ globals
     constant movetype       MOVE_TYPE_FLOAT                 = ConvertMoveType(16)
     constant movetype       MOVE_TYPE_AMPHIBIOUS            = ConvertMoveType(32)
     constant movetype       MOVE_TYPE_UNBUILDABLE           = ConvertMoveType(64)
-    
+  
     // Target Flag
     constant targetflag     TARGET_FLAG_NONE                = ConvertTargetFlag(1)
     constant targetflag     TARGET_FLAG_GROUND              = ConvertTargetFlag(2)
@@ -2276,7 +2199,7 @@ native SetPlayerStartLocation   takes player whichPlayer, integer startLocIndex 
 // which removes it from consideration for subsequently placed players
 // ( i.e. you can use this to put people in a fixed loc and then
 //   use random placement for any unplaced players etc )
-native ForcePlayerStartLocation takes player whichPlayer, integer startLocIndex returns nothing 
+native ForcePlayerStartLocation takes player whichPlayer, integer startLocIndex returns nothing
 native SetPlayerColor           takes player whichPlayer, playercolor color returns nothing
 native SetPlayerAlliance        takes player sourcePlayer, player otherPlayer, alliancetype whichAllianceSetting, boolean value returns nothing
 native SetPlayerTaxRate         takes player sourcePlayer, player otherPlayer, playerstate whichResource, integer rate returns nothing
@@ -2478,7 +2401,7 @@ native TriggerRegisterDialogButtonEvent takes trigger whichTrigger, button which
 constant native GetEventGameState takes nothing returns gamestate
 
 native TriggerRegisterGameEvent takes trigger whichTrigger, gameevent whichGameEvent returns event
-  
+ 
 // EVENT_GAME_VICTORY
 constant native GetWinningPlayer takes nothing returns player
 
@@ -2642,8 +2565,8 @@ constant native GetSpellAbilityUnit         takes nothing returns unit
 constant native GetSpellAbilityId           takes nothing returns integer
 constant native GetSpellAbility             takes nothing returns ability
 constant native GetSpellTargetLoc           takes nothing returns location
-constant native GetSpellTargetX				takes nothing returns real
-constant native GetSpellTargetY				takes nothing returns real
+constant native GetSpellTargetX                takes nothing returns real
+constant native GetSpellTargetY                takes nothing returns real
 constant native GetSpellTargetDestructable  takes nothing returns destructable
 constant native GetSpellTargetItem          takes nothing returns item
 constant native GetSpellTargetUnit          takes nothing returns unit
@@ -2691,7 +2614,7 @@ constant native GetEventDamageSource takes nothing returns unit
 // EVENT_UNIT_DECAY
 // Use the GetDyingUnit and GetDecayingUnit funcs above
 
-// EVENT_UNIT_DETECTED 
+// EVENT_UNIT_DETECTED
 constant native GetEventDetectingPlayer takes nothing returns player
 
 native TriggerRegisterFilterUnitEvent takes trigger whichTrigger, unit whichUnit, unitevent whichEvent, boolexpr filter returns event
@@ -3194,11 +3117,11 @@ native  ReloadGameCachesFromDisk takes nothing returns boolean
 native  InitGameCache    takes string campaignFile returns gamecache
 native  SaveGameCache    takes gamecache whichCache returns boolean
 
-native  StoreInteger					takes gamecache cache, string missionKey, string key, integer value returns nothing
-native  StoreReal						takes gamecache cache, string missionKey, string key, real value returns nothing
-native  StoreBoolean					takes gamecache cache, string missionKey, string key, boolean value returns nothing
-native  StoreUnit						takes gamecache cache, string missionKey, string key, unit whichUnit returns boolean
-native  StoreString						takes gamecache cache, string missionKey, string key, string value returns boolean
+native  StoreInteger                    takes gamecache cache, string missionKey, string key, integer value returns nothing
+native  StoreReal                        takes gamecache cache, string missionKey, string key, real value returns nothing
+native  StoreBoolean                    takes gamecache cache, string missionKey, string key, boolean value returns nothing
+native  StoreUnit                        takes gamecache cache, string missionKey, string key, unit whichUnit returns boolean
+native  StoreString                        takes gamecache cache, string missionKey, string key, string value returns boolean
 
 native SyncStoredInteger        takes gamecache cache, string missionKey, string key returns nothing
 native SyncStoredReal           takes gamecache cache, string missionKey, string key returns nothing
@@ -3206,134 +3129,134 @@ native SyncStoredBoolean        takes gamecache cache, string missionKey, string
 native SyncStoredUnit           takes gamecache cache, string missionKey, string key returns nothing
 native SyncStoredString         takes gamecache cache, string missionKey, string key returns nothing
 
-native  HaveStoredInteger					takes gamecache cache, string missionKey, string key returns boolean
-native  HaveStoredReal						takes gamecache cache, string missionKey, string key returns boolean
-native  HaveStoredBoolean					takes gamecache cache, string missionKey, string key returns boolean
-native  HaveStoredUnit						takes gamecache cache, string missionKey, string key returns boolean
-native  HaveStoredString					takes gamecache cache, string missionKey, string key returns boolean
+native  HaveStoredInteger                    takes gamecache cache, string missionKey, string key returns boolean
+native  HaveStoredReal                        takes gamecache cache, string missionKey, string key returns boolean
+native  HaveStoredBoolean                    takes gamecache cache, string missionKey, string key returns boolean
+native  HaveStoredUnit                        takes gamecache cache, string missionKey, string key returns boolean
+native  HaveStoredString                    takes gamecache cache, string missionKey, string key returns boolean
 
-native  FlushGameCache						takes gamecache cache returns nothing
-native  FlushStoredMission					takes gamecache cache, string missionKey returns nothing
-native  FlushStoredInteger					takes gamecache cache, string missionKey, string key returns nothing
-native  FlushStoredReal						takes gamecache cache, string missionKey, string key returns nothing
-native  FlushStoredBoolean					takes gamecache cache, string missionKey, string key returns nothing
-native  FlushStoredUnit						takes gamecache cache, string missionKey, string key returns nothing
-native  FlushStoredString					takes gamecache cache, string missionKey, string key returns nothing
+native  FlushGameCache                        takes gamecache cache returns nothing
+native  FlushStoredMission                    takes gamecache cache, string missionKey returns nothing
+native  FlushStoredInteger                    takes gamecache cache, string missionKey, string key returns nothing
+native  FlushStoredReal                        takes gamecache cache, string missionKey, string key returns nothing
+native  FlushStoredBoolean                    takes gamecache cache, string missionKey, string key returns nothing
+native  FlushStoredUnit                        takes gamecache cache, string missionKey, string key returns nothing
+native  FlushStoredString                    takes gamecache cache, string missionKey, string key returns nothing
 
 // Will return 0 if the specified value's data is not found in the cache
-native  GetStoredInteger				takes gamecache cache, string missionKey, string key returns integer
-native  GetStoredReal					takes gamecache cache, string missionKey, string key returns real
-native  GetStoredBoolean				takes gamecache cache, string missionKey, string key returns boolean
-native  GetStoredString					takes gamecache cache, string missionKey, string key returns string
-native  RestoreUnit						takes gamecache cache, string missionKey, string key, player forWhichPlayer, real x, real y, real facing returns unit
+native  GetStoredInteger                takes gamecache cache, string missionKey, string key returns integer
+native  GetStoredReal                    takes gamecache cache, string missionKey, string key returns real
+native  GetStoredBoolean                takes gamecache cache, string missionKey, string key returns boolean
+native  GetStoredString                    takes gamecache cache, string missionKey, string key returns string
+native  RestoreUnit                        takes gamecache cache, string missionKey, string key, player forWhichPlayer, real x, real y, real facing returns unit
 
 
 native  InitHashtable    takes nothing returns hashtable
 
-native  SaveInteger						takes hashtable table, integer parentKey, integer childKey, integer value returns nothing
-native  SaveReal						takes hashtable table, integer parentKey, integer childKey, real value returns nothing
-native  SaveBoolean						takes hashtable table, integer parentKey, integer childKey, boolean value returns nothing
-native  SaveStr							takes hashtable table, integer parentKey, integer childKey, string value returns boolean
-native  SavePlayerHandle				takes hashtable table, integer parentKey, integer childKey, player whichPlayer returns boolean
-native  SaveWidgetHandle				takes hashtable table, integer parentKey, integer childKey, widget whichWidget returns boolean
-native  SaveDestructableHandle			takes hashtable table, integer parentKey, integer childKey, destructable whichDestructable returns boolean
-native  SaveItemHandle					takes hashtable table, integer parentKey, integer childKey, item whichItem returns boolean
-native  SaveUnitHandle					takes hashtable table, integer parentKey, integer childKey, unit whichUnit returns boolean
-native  SaveAbilityHandle				takes hashtable table, integer parentKey, integer childKey, ability whichAbility returns boolean
-native  SaveTimerHandle					takes hashtable table, integer parentKey, integer childKey, timer whichTimer returns boolean
-native  SaveTriggerHandle				takes hashtable table, integer parentKey, integer childKey, trigger whichTrigger returns boolean
-native  SaveTriggerConditionHandle		takes hashtable table, integer parentKey, integer childKey, triggercondition whichTriggercondition returns boolean
-native  SaveTriggerActionHandle			takes hashtable table, integer parentKey, integer childKey, triggeraction whichTriggeraction returns boolean
-native  SaveTriggerEventHandle			takes hashtable table, integer parentKey, integer childKey, event whichEvent returns boolean
-native  SaveForceHandle					takes hashtable table, integer parentKey, integer childKey, force whichForce returns boolean
-native  SaveGroupHandle					takes hashtable table, integer parentKey, integer childKey, group whichGroup returns boolean
-native  SaveLocationHandle				takes hashtable table, integer parentKey, integer childKey, location whichLocation returns boolean
-native  SaveRectHandle					takes hashtable table, integer parentKey, integer childKey, rect whichRect returns boolean
-native  SaveBooleanExprHandle			takes hashtable table, integer parentKey, integer childKey, boolexpr whichBoolexpr returns boolean
-native  SaveSoundHandle					takes hashtable table, integer parentKey, integer childKey, sound whichSound returns boolean
-native  SaveEffectHandle				takes hashtable table, integer parentKey, integer childKey, effect whichEffect returns boolean
-native  SaveUnitPoolHandle				takes hashtable table, integer parentKey, integer childKey, unitpool whichUnitpool returns boolean
-native  SaveItemPoolHandle				takes hashtable table, integer parentKey, integer childKey, itempool whichItempool returns boolean
-native  SaveQuestHandle					takes hashtable table, integer parentKey, integer childKey, quest whichQuest returns boolean
-native  SaveQuestItemHandle				takes hashtable table, integer parentKey, integer childKey, questitem whichQuestitem returns boolean
-native  SaveDefeatConditionHandle		takes hashtable table, integer parentKey, integer childKey, defeatcondition whichDefeatcondition returns boolean
-native  SaveTimerDialogHandle			takes hashtable table, integer parentKey, integer childKey, timerdialog whichTimerdialog returns boolean
-native  SaveLeaderboardHandle			takes hashtable table, integer parentKey, integer childKey, leaderboard whichLeaderboard returns boolean
-native  SaveMultiboardHandle			takes hashtable table, integer parentKey, integer childKey, multiboard whichMultiboard returns boolean
-native  SaveMultiboardItemHandle		takes hashtable table, integer parentKey, integer childKey, multiboarditem whichMultiboarditem returns boolean
-native  SaveTrackableHandle				takes hashtable table, integer parentKey, integer childKey, trackable whichTrackable returns boolean
-native  SaveDialogHandle				takes hashtable table, integer parentKey, integer childKey, dialog whichDialog returns boolean
-native  SaveButtonHandle				takes hashtable table, integer parentKey, integer childKey, button whichButton returns boolean
-native  SaveTextTagHandle				takes hashtable table, integer parentKey, integer childKey, texttag whichTexttag returns boolean
-native  SaveLightningHandle				takes hashtable table, integer parentKey, integer childKey, lightning whichLightning returns boolean
-native  SaveImageHandle					takes hashtable table, integer parentKey, integer childKey, image whichImage returns boolean
-native  SaveUbersplatHandle				takes hashtable table, integer parentKey, integer childKey, ubersplat whichUbersplat returns boolean
-native  SaveRegionHandle				takes hashtable table, integer parentKey, integer childKey, region whichRegion returns boolean
-native  SaveFogStateHandle				takes hashtable table, integer parentKey, integer childKey, fogstate whichFogState returns boolean
-native  SaveFogModifierHandle			takes hashtable table, integer parentKey, integer childKey, fogmodifier whichFogModifier returns boolean
-native  SaveAgentHandle					takes hashtable table, integer parentKey, integer childKey, agent whichAgent returns boolean
-native  SaveHashtableHandle				takes hashtable table, integer parentKey, integer childKey, hashtable whichHashtable returns boolean
-native  SaveFrameHandle					takes hashtable table, integer parentKey, integer childKey, framehandle whichFrameHandle returns boolean
+native  SaveInteger                        takes hashtable table, integer parentKey, integer childKey, integer value returns nothing
+native  SaveReal                        takes hashtable table, integer parentKey, integer childKey, real value returns nothing
+native  SaveBoolean                        takes hashtable table, integer parentKey, integer childKey, boolean value returns nothing
+native  SaveStr                            takes hashtable table, integer parentKey, integer childKey, string value returns boolean
+native  SavePlayerHandle                takes hashtable table, integer parentKey, integer childKey, player whichPlayer returns boolean
+native  SaveWidgetHandle                takes hashtable table, integer parentKey, integer childKey, widget whichWidget returns boolean
+native  SaveDestructableHandle            takes hashtable table, integer parentKey, integer childKey, destructable whichDestructable returns boolean
+native  SaveItemHandle                    takes hashtable table, integer parentKey, integer childKey, item whichItem returns boolean
+native  SaveUnitHandle                    takes hashtable table, integer parentKey, integer childKey, unit whichUnit returns boolean
+native  SaveAbilityHandle                takes hashtable table, integer parentKey, integer childKey, ability whichAbility returns boolean
+native  SaveTimerHandle                    takes hashtable table, integer parentKey, integer childKey, timer whichTimer returns boolean
+native  SaveTriggerHandle                takes hashtable table, integer parentKey, integer childKey, trigger whichTrigger returns boolean
+native  SaveTriggerConditionHandle        takes hashtable table, integer parentKey, integer childKey, triggercondition whichTriggercondition returns boolean
+native  SaveTriggerActionHandle            takes hashtable table, integer parentKey, integer childKey, triggeraction whichTriggeraction returns boolean
+native  SaveTriggerEventHandle            takes hashtable table, integer parentKey, integer childKey, event whichEvent returns boolean
+native  SaveForceHandle                    takes hashtable table, integer parentKey, integer childKey, force whichForce returns boolean
+native  SaveGroupHandle                    takes hashtable table, integer parentKey, integer childKey, group whichGroup returns boolean
+native  SaveLocationHandle                takes hashtable table, integer parentKey, integer childKey, location whichLocation returns boolean
+native  SaveRectHandle                    takes hashtable table, integer parentKey, integer childKey, rect whichRect returns boolean
+native  SaveBooleanExprHandle            takes hashtable table, integer parentKey, integer childKey, boolexpr whichBoolexpr returns boolean
+native  SaveSoundHandle                    takes hashtable table, integer parentKey, integer childKey, sound whichSound returns boolean
+native  SaveEffectHandle                takes hashtable table, integer parentKey, integer childKey, effect whichEffect returns boolean
+native  SaveUnitPoolHandle                takes hashtable table, integer parentKey, integer childKey, unitpool whichUnitpool returns boolean
+native  SaveItemPoolHandle                takes hashtable table, integer parentKey, integer childKey, itempool whichItempool returns boolean
+native  SaveQuestHandle                    takes hashtable table, integer parentKey, integer childKey, quest whichQuest returns boolean
+native  SaveQuestItemHandle                takes hashtable table, integer parentKey, integer childKey, questitem whichQuestitem returns boolean
+native  SaveDefeatConditionHandle        takes hashtable table, integer parentKey, integer childKey, defeatcondition whichDefeatcondition returns boolean
+native  SaveTimerDialogHandle            takes hashtable table, integer parentKey, integer childKey, timerdialog whichTimerdialog returns boolean
+native  SaveLeaderboardHandle            takes hashtable table, integer parentKey, integer childKey, leaderboard whichLeaderboard returns boolean
+native  SaveMultiboardHandle            takes hashtable table, integer parentKey, integer childKey, multiboard whichMultiboard returns boolean
+native  SaveMultiboardItemHandle        takes hashtable table, integer parentKey, integer childKey, multiboarditem whichMultiboarditem returns boolean
+native  SaveTrackableHandle                takes hashtable table, integer parentKey, integer childKey, trackable whichTrackable returns boolean
+native  SaveDialogHandle                takes hashtable table, integer parentKey, integer childKey, dialog whichDialog returns boolean
+native  SaveButtonHandle                takes hashtable table, integer parentKey, integer childKey, button whichButton returns boolean
+native  SaveTextTagHandle                takes hashtable table, integer parentKey, integer childKey, texttag whichTexttag returns boolean
+native  SaveLightningHandle                takes hashtable table, integer parentKey, integer childKey, lightning whichLightning returns boolean
+native  SaveImageHandle                    takes hashtable table, integer parentKey, integer childKey, image whichImage returns boolean
+native  SaveUbersplatHandle                takes hashtable table, integer parentKey, integer childKey, ubersplat whichUbersplat returns boolean
+native  SaveRegionHandle                takes hashtable table, integer parentKey, integer childKey, region whichRegion returns boolean
+native  SaveFogStateHandle                takes hashtable table, integer parentKey, integer childKey, fogstate whichFogState returns boolean
+native  SaveFogModifierHandle            takes hashtable table, integer parentKey, integer childKey, fogmodifier whichFogModifier returns boolean
+native  SaveAgentHandle                    takes hashtable table, integer parentKey, integer childKey, agent whichAgent returns boolean
+native  SaveHashtableHandle                takes hashtable table, integer parentKey, integer childKey, hashtable whichHashtable returns boolean
+native  SaveFrameHandle                    takes hashtable table, integer parentKey, integer childKey, framehandle whichFrameHandle returns boolean
 
 
-native  LoadInteger					takes hashtable table, integer parentKey, integer childKey returns integer
-native  LoadReal					takes hashtable table, integer parentKey, integer childKey returns real
-native  LoadBoolean				    takes hashtable table, integer parentKey, integer childKey returns boolean
-native  LoadStr 					takes hashtable table, integer parentKey, integer childKey returns string
-native  LoadPlayerHandle			takes hashtable table, integer parentKey, integer childKey returns player
-native  LoadWidgetHandle			takes hashtable table, integer parentKey, integer childKey returns widget
-native  LoadDestructableHandle		takes hashtable table, integer parentKey, integer childKey returns destructable
-native  LoadItemHandle				takes hashtable table, integer parentKey, integer childKey returns item
-native  LoadUnitHandle				takes hashtable table, integer parentKey, integer childKey returns unit
-native  LoadAbilityHandle			takes hashtable table, integer parentKey, integer childKey returns ability
-native  LoadTimerHandle				takes hashtable table, integer parentKey, integer childKey returns timer
-native  LoadTriggerHandle			takes hashtable table, integer parentKey, integer childKey returns trigger
-native  LoadTriggerConditionHandle	takes hashtable table, integer parentKey, integer childKey returns triggercondition
-native  LoadTriggerActionHandle		takes hashtable table, integer parentKey, integer childKey returns triggeraction
-native  LoadTriggerEventHandle		takes hashtable table, integer parentKey, integer childKey returns event
-native  LoadForceHandle				takes hashtable table, integer parentKey, integer childKey returns force
-native  LoadGroupHandle				takes hashtable table, integer parentKey, integer childKey returns group
-native  LoadLocationHandle			takes hashtable table, integer parentKey, integer childKey returns location
-native  LoadRectHandle				takes hashtable table, integer parentKey, integer childKey returns rect
-native  LoadBooleanExprHandle		takes hashtable table, integer parentKey, integer childKey returns boolexpr
-native  LoadSoundHandle				takes hashtable table, integer parentKey, integer childKey returns sound
-native  LoadEffectHandle			takes hashtable table, integer parentKey, integer childKey returns effect
-native  LoadUnitPoolHandle			takes hashtable table, integer parentKey, integer childKey returns unitpool
-native  LoadItemPoolHandle			takes hashtable table, integer parentKey, integer childKey returns itempool
-native  LoadQuestHandle				takes hashtable table, integer parentKey, integer childKey returns quest
-native  LoadQuestItemHandle			takes hashtable table, integer parentKey, integer childKey returns questitem
-native  LoadDefeatConditionHandle	takes hashtable table, integer parentKey, integer childKey returns defeatcondition
-native  LoadTimerDialogHandle		takes hashtable table, integer parentKey, integer childKey returns timerdialog
-native  LoadLeaderboardHandle		takes hashtable table, integer parentKey, integer childKey returns leaderboard
-native  LoadMultiboardHandle		takes hashtable table, integer parentKey, integer childKey returns multiboard
-native  LoadMultiboardItemHandle	takes hashtable table, integer parentKey, integer childKey returns multiboarditem
-native  LoadTrackableHandle			takes hashtable table, integer parentKey, integer childKey returns trackable
-native  LoadDialogHandle			takes hashtable table, integer parentKey, integer childKey returns dialog
-native  LoadButtonHandle			takes hashtable table, integer parentKey, integer childKey returns button
-native  LoadTextTagHandle			takes hashtable table, integer parentKey, integer childKey returns texttag
-native  LoadLightningHandle			takes hashtable table, integer parentKey, integer childKey returns lightning
-native  LoadImageHandle				takes hashtable table, integer parentKey, integer childKey returns image
-native  LoadUbersplatHandle			takes hashtable table, integer parentKey, integer childKey returns ubersplat
-native  LoadRegionHandle			takes hashtable table, integer parentKey, integer childKey returns region
-native  LoadFogStateHandle			takes hashtable table, integer parentKey, integer childKey returns fogstate
-native  LoadFogModifierHandle		takes hashtable table, integer parentKey, integer childKey returns fogmodifier
-native  LoadHashtableHandle			takes hashtable table, integer parentKey, integer childKey returns hashtable
-native  LoadFrameHandle				takes hashtable table, integer parentKey, integer childKey returns framehandle
+native  LoadInteger                    takes hashtable table, integer parentKey, integer childKey returns integer
+native  LoadReal                    takes hashtable table, integer parentKey, integer childKey returns real
+native  LoadBoolean                    takes hashtable table, integer parentKey, integer childKey returns boolean
+native  LoadStr                     takes hashtable table, integer parentKey, integer childKey returns string
+native  LoadPlayerHandle            takes hashtable table, integer parentKey, integer childKey returns player
+native  LoadWidgetHandle            takes hashtable table, integer parentKey, integer childKey returns widget
+native  LoadDestructableHandle        takes hashtable table, integer parentKey, integer childKey returns destructable
+native  LoadItemHandle                takes hashtable table, integer parentKey, integer childKey returns item
+native  LoadUnitHandle                takes hashtable table, integer parentKey, integer childKey returns unit
+native  LoadAbilityHandle            takes hashtable table, integer parentKey, integer childKey returns ability
+native  LoadTimerHandle                takes hashtable table, integer parentKey, integer childKey returns timer
+native  LoadTriggerHandle            takes hashtable table, integer parentKey, integer childKey returns trigger
+native  LoadTriggerConditionHandle    takes hashtable table, integer parentKey, integer childKey returns triggercondition
+native  LoadTriggerActionHandle        takes hashtable table, integer parentKey, integer childKey returns triggeraction
+native  LoadTriggerEventHandle        takes hashtable table, integer parentKey, integer childKey returns event
+native  LoadForceHandle                takes hashtable table, integer parentKey, integer childKey returns force
+native  LoadGroupHandle                takes hashtable table, integer parentKey, integer childKey returns group
+native  LoadLocationHandle            takes hashtable table, integer parentKey, integer childKey returns location
+native  LoadRectHandle                takes hashtable table, integer parentKey, integer childKey returns rect
+native  LoadBooleanExprHandle        takes hashtable table, integer parentKey, integer childKey returns boolexpr
+native  LoadSoundHandle                takes hashtable table, integer parentKey, integer childKey returns sound
+native  LoadEffectHandle            takes hashtable table, integer parentKey, integer childKey returns effect
+native  LoadUnitPoolHandle            takes hashtable table, integer parentKey, integer childKey returns unitpool
+native  LoadItemPoolHandle            takes hashtable table, integer parentKey, integer childKey returns itempool
+native  LoadQuestHandle                takes hashtable table, integer parentKey, integer childKey returns quest
+native  LoadQuestItemHandle            takes hashtable table, integer parentKey, integer childKey returns questitem
+native  LoadDefeatConditionHandle    takes hashtable table, integer parentKey, integer childKey returns defeatcondition
+native  LoadTimerDialogHandle        takes hashtable table, integer parentKey, integer childKey returns timerdialog
+native  LoadLeaderboardHandle        takes hashtable table, integer parentKey, integer childKey returns leaderboard
+native  LoadMultiboardHandle        takes hashtable table, integer parentKey, integer childKey returns multiboard
+native  LoadMultiboardItemHandle    takes hashtable table, integer parentKey, integer childKey returns multiboarditem
+native  LoadTrackableHandle            takes hashtable table, integer parentKey, integer childKey returns trackable
+native  LoadDialogHandle            takes hashtable table, integer parentKey, integer childKey returns dialog
+native  LoadButtonHandle            takes hashtable table, integer parentKey, integer childKey returns button
+native  LoadTextTagHandle            takes hashtable table, integer parentKey, integer childKey returns texttag
+native  LoadLightningHandle            takes hashtable table, integer parentKey, integer childKey returns lightning
+native  LoadImageHandle                takes hashtable table, integer parentKey, integer childKey returns image
+native  LoadUbersplatHandle            takes hashtable table, integer parentKey, integer childKey returns ubersplat
+native  LoadRegionHandle            takes hashtable table, integer parentKey, integer childKey returns region
+native  LoadFogStateHandle            takes hashtable table, integer parentKey, integer childKey returns fogstate
+native  LoadFogModifierHandle        takes hashtable table, integer parentKey, integer childKey returns fogmodifier
+native  LoadHashtableHandle            takes hashtable table, integer parentKey, integer childKey returns hashtable
+native  LoadFrameHandle                takes hashtable table, integer parentKey, integer childKey returns framehandle
 
-native  HaveSavedInteger					takes hashtable table, integer parentKey, integer childKey returns boolean
-native  HaveSavedReal						takes hashtable table, integer parentKey, integer childKey returns boolean
-native  HaveSavedBoolean					takes hashtable table, integer parentKey, integer childKey returns boolean
-native  HaveSavedString					    takes hashtable table, integer parentKey, integer childKey returns boolean
-native  HaveSavedHandle     				takes hashtable table, integer parentKey, integer childKey returns boolean
+native  HaveSavedInteger                    takes hashtable table, integer parentKey, integer childKey returns boolean
+native  HaveSavedReal                        takes hashtable table, integer parentKey, integer childKey returns boolean
+native  HaveSavedBoolean                    takes hashtable table, integer parentKey, integer childKey returns boolean
+native  HaveSavedString                        takes hashtable table, integer parentKey, integer childKey returns boolean
+native  HaveSavedHandle                    takes hashtable table, integer parentKey, integer childKey returns boolean
 
-native  RemoveSavedInteger					takes hashtable table, integer parentKey, integer childKey returns nothing
-native  RemoveSavedReal						takes hashtable table, integer parentKey, integer childKey returns nothing
-native  RemoveSavedBoolean					takes hashtable table, integer parentKey, integer childKey returns nothing
-native  RemoveSavedString					takes hashtable table, integer parentKey, integer childKey returns nothing
-native  RemoveSavedHandle					takes hashtable table, integer parentKey, integer childKey returns nothing
+native  RemoveSavedInteger                    takes hashtable table, integer parentKey, integer childKey returns nothing
+native  RemoveSavedReal                        takes hashtable table, integer parentKey, integer childKey returns nothing
+native  RemoveSavedBoolean                    takes hashtable table, integer parentKey, integer childKey returns nothing
+native  RemoveSavedString                    takes hashtable table, integer parentKey, integer childKey returns nothing
+native  RemoveSavedHandle                    takes hashtable table, integer parentKey, integer childKey returns nothing
 
-native  FlushParentHashtable						takes hashtable table returns nothing
-native  FlushChildHashtable					takes hashtable table, integer parentKey returns nothing
+native  FlushParentHashtable                        takes hashtable table returns nothing
+native  FlushChildHashtable                    takes hashtable table, integer parentKey returns nothing
 
 
 //============================================================================
@@ -3437,7 +3360,7 @@ native QuestSetCompleted    takes quest whichQuest, boolean completed  returns n
 native QuestSetDiscovered   takes quest whichQuest, boolean discovered returns nothing
 native QuestSetFailed       takes quest whichQuest, boolean failed     returns nothing
 native QuestSetEnabled      takes quest whichQuest, boolean enabled    returns nothing
-    
+  
 native IsQuestRequired     takes quest whichQuest returns boolean
 native IsQuestCompleted    takes quest whichQuest returns boolean
 native IsQuestDiscovered   takes quest whichQuest returns boolean
@@ -3643,7 +3566,7 @@ native SetSoundChannel              takes sound soundHandle, integer channel ret
 native SetSoundVolume               takes sound soundHandle, integer volume returns nothing
 native SetSoundPitch                takes sound soundHandle, real pitch returns nothing
 
-// the following method must be called immediately after calling "StartSound" 
+// the following method must be called immediately after calling "StartSound"
 native SetSoundPlayPosition         takes sound soundHandle, integer millisecs returns nothing
 
 // these calls are only valid if the sound was created with 3d enabled
@@ -3914,13 +3837,13 @@ native BlzGetUnitAbilityCooldownRemaining          takes unit whichUnit, integer
 native BlzEndUnitAbilityCooldown                   takes unit whichUnit, integer abilCode returns nothing
 native BlzGetUnitAbilityManaCost                   takes unit whichUnit, integer abilId, integer level returns integer
 native BlzSetUnitAbilityManaCost                   takes unit whichUnit, integer abilId, integer level, integer manaCost returns nothing
-native BlzGetLocalUnitZ                            takes unit whichUnit returns real    
+native BlzGetLocalUnitZ                            takes unit whichUnit returns real  
 native BlzDecPlayerTechResearched                  takes player whichPlayer, integer techid, integer levels returns nothing
 native BlzSetEventDamage                           takes real damage returns nothing
-native BlzGetEventDamageTarget 	                   takes nothing returns unit
-native BlzGetEventAttackType  	                   takes nothing returns attacktype
+native BlzGetEventDamageTarget                        takes nothing returns unit
+native BlzGetEventAttackType                         takes nothing returns attacktype
 native BlzGetEventDamageType                       takes nothing returns damagetype
-native BlzGetEventWeaponType  	                   takes nothing returns weapontype
+native BlzGetEventWeaponType                         takes nothing returns weapontype
 native BlzSetEventAttackType                       takes attacktype attackType returns boolean
 native BlzSetEventDamageType                       takes damagetype damageType returns boolean
 native BlzSetEventWeaponType                       takes weapontype weaponType returns boolean
@@ -4019,7 +3942,7 @@ native BlzPauseUnitEx                              takes unit whichUnit, boolean
 // Bit Operations
 native BlzBitOr                                    takes integer x, integer y returns integer
 native BlzBitAnd                                   takes integer x, integer y returns integer
-native BlzBitXor                                   takes integer x, integer y returns integer 
+native BlzBitXor                                   takes integer x, integer y returns integer
 
 // Intanced Object Operations
 // Ability
@@ -4056,7 +3979,7 @@ native BlzRemoveAbilityIntegerLevelArrayField      takes ability whichAbility, a
 native BlzRemoveAbilityRealLevelArrayField         takes ability whichAbility, abilityreallevelarrayfield whichField, integer level, real value returns boolean
 native BlzRemoveAbilityStringLevelArrayField       takes ability whichAbility, abilitystringlevelarrayfield whichField, integer level, string value returns boolean
 
-// Item 
+// Item
 native BlzGetItemAbilityByIndex                    takes item whichItem, integer index returns ability
 native BlzGetItemAbility                           takes item whichItem, integer abilCode returns ability
 native BlzItemAddAbility                           takes item whichItem, integer abilCode returns boolean
@@ -4070,7 +3993,7 @@ native BlzSetItemRealField                         takes item whichItem, itemrea
 native BlzSetItemStringField                       takes item whichItem, itemstringfield whichField, string value returns boolean
 native BlzItemRemoveAbility                        takes item whichItem, integer abilCode returns boolean
 
-// Unit 
+// Unit
 native BlzGetUnitBooleanField                      takes unit whichUnit, unitbooleanfield whichField returns boolean
 native BlzGetUnitIntegerField                      takes unit whichUnit, unitintegerfield whichField returns integer
 native BlzGetUnitRealField                         takes unit whichUnit, unitrealfield whichField returns real
