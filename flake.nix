@@ -24,9 +24,17 @@
 		    # Dependency overrides go here
 		};
 
+
+		commonj = pkgs.stdenv.mkDerivation {
+		    name = "common.j";
+		    src = self;
+		    installPhase = "mkdir $out; install -t $out common.j";
+		};
+
             in rec {
 		packages.${packageName} = cabalBuilds;
-		defaultPackage = cabalBuilds;
+		packages.common-j = commonj;
+		defaultPackage = commonj;
 
 		apps.jhash = { type = "app"; program = "${cabalBuilds}/bin/jhash"; };
 		apps.default = apps.jhash;
